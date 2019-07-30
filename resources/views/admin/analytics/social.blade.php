@@ -9,15 +9,7 @@
 @section('breadcrumb2', 'View')
 
 @section('headassest')
-   
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous">
-    </script>
 
-
-   
 @endsection
 @section('content')
     <!-- Main content -->
@@ -29,8 +21,6 @@
                 <div class="col-12">
                     <!-- Custom Tabs -->
                     <div class="card card-danger card-outline">
-
-
 
                             <div class="row">
 
@@ -109,9 +99,7 @@
     
                                     </div>
     
-                                </div>
-
-                           
+                            </div>
 
 
                         </div>
@@ -133,11 +121,6 @@
 
 @endsection
 @section('chartsscripts')
-
-    
-
-
-
 
 @endsection
 
