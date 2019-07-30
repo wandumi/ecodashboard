@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
 
-@section('browsertitle', 'Ecodashboard | Analytics ')
+@section('browsertitle', 'Ecodashboard | Social Media ')
 
-@section('title','Analytics ')
+@section('title','Social Media')
 
-@section('breadcrumb1', 'Analytics')
+@section('breadcrumb1', 'Social Media')
 
 @section('breadcrumb2', 'View')
 
