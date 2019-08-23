@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Social;
+use App\cotrak;
 use Illuminate\Http\Request;
 
-class SocialController extends Controller
+class CotrakController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class SocialController extends Controller
      */
     public function index()
     {
-        // return view('admin.social.index');
+        return view('admin.cotrak.index');
     }
 
     /**
@@ -41,10 +41,10 @@ class SocialController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Social  $social
+     * @param  \App\cotrak  $cotrak
      * @return \Illuminate\Http\Response
      */
-    public function show(Social $social)
+    public function show(cotrak $cotrak)
     {
         //
     }
@@ -52,10 +52,10 @@ class SocialController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Social  $social
+     * @param  \App\cotrak  $cotrak
      * @return \Illuminate\Http\Response
      */
-    public function edit(Social $social)
+    public function edit(cotrak $cotrak)
     {
         //
     }
@@ -64,10 +64,10 @@ class SocialController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Social  $social
+     * @param  \App\cotrak  $cotrak
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Social $social)
+    public function update(Request $request, cotrak $cotrak)
     {
         //
     }
@@ -75,10 +75,10 @@ class SocialController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Social  $social
+     * @param  \App\cotrak  $cotrak
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Social $social)
+    public function destroy(cotrak $cotrak)
     {
         //
     }

@@ -57,6 +57,14 @@
                                     {{ __('Login') }}
                                 </button>
 
+                                <a href="{{ url('facebook/login') }}" class="btn btn-primary">
+                                    facebook
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mt-2">
+                            <div class="col-md-8 offset-md-4">
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
@@ -64,6 +72,8 @@
                                 @endif
                             </div>
                         </div>
+
+
                     </form>
                 </div>
             </div>

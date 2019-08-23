@@ -27,7 +27,7 @@ class WebsitesaController extends Controller
         $barchart = new unclaimed;
         $barchart->labels(['2017','2018','2019','2020']);
         $barchart->dataset('Visitors', 'bar', [$Seventeen,$Eighteen,$Nighteen,$Twenty] )
-            ->backgroundColor(['#009900','#8a8a5c','#f1c40f','#e67e22','#16a085','#2980b9']);
+        ->backgroundColor(['#009900','#8a8a5c','#f1c40f','#e67e22','#16a085','#2980b9']);
 
 
         $piechart = new unclaimed;
@@ -35,8 +35,7 @@ class WebsitesaController extends Controller
         $piechart->minimalist(true);
         $piechart->displayLegend(true);
         $piechart->dataset('Visitors', 'pie', [$Seventeen,$Eighteen,$Nighteen,$Twenty])
-        
-            ->backgroundColor(['#009900','#8a8a5c','#f1c40f','#e67e22','#16a085','#2980b9']);
+        ->backgroundColor(['#009900','#8a8a5c','#f1c40f','#e67e22','#16a085','#2980b9']);
 
         //This is the pagenation structure
         //$analytics = websitesa::paginate(5);
@@ -486,5 +485,10 @@ class WebsitesaController extends Controller
     public function destroy(websitesa $websitesa)
     {
         //
+    }
+
+    public function social()
+    {
+        return view('admin.websitesa.social');
     }
 }

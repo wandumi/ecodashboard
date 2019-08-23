@@ -9,8 +9,10 @@
         "consoletvs/charts": "6.*",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
+        "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
-        "nesbot/carbon": "1.26.3"
+        "nesbot/carbon": "1.26.3",
+        "sammyk/laravel-facebook-sdk": "^3.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",
@@ -19,8 +21,8 @@
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
-        "phpunit/phpunit": "^7.0",
-        "nitmedia/wkhtml2pdf": "dev-master"
+        "phpunit/phpunit": "^7.0"
+       
     },
     "autoload": {
         "classmap": [
@@ -62,6 +64,7 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
+    
     "minimum-stability": "dev",
     "prefer-stable": true
 }

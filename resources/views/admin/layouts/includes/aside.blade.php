@@ -3,10 +3,18 @@
     <!-- Brand Logo -->
     <a href="{{ url('home') }}" class="brand-link">
         <img src="{{ asset('admin/dist/img/mineworkers.png') }}"
-             alt="Mine Workers"
-             style="opacity: .8; height: .5rem;"
-        >
-        {{-- <span class="brand-text font-weight-light">MWPF</span> --}}
+            height="160"
+            width="130"
+            alt="Mine Workers"
+            {{-- class="brand-image img-circle elevation-3" --}}
+            style=""
+            class="img-fluid mx-auto d-block"
+                   >
+
+             
+        {{-- <span class="brand-text font-weight-light">
+            mwpf
+        </span>  --}}
     </a>
 
     <!-- Sidebar -->
@@ -36,7 +44,7 @@
             </a>
 
           </li>
-
+          
 
         @can('isSuperadmin','isAdmin')
 
@@ -143,23 +151,21 @@
 
             </li>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
+                <a href="" class="nav-link {{ setActive('cotrak', 'active') }}">
                     <i class="nav-icon fa fa-th"></i>
                     <p>
                     Cotrak
                     <i class="fa fa-angle-left right"></i>
                     </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    {{-- <li class="nav-item">
-
-                        <a href="{{ url('analytics') }}" class="nav-link">
+                    <ul class="nav nav-treeview">
+                        <a href="{{ url('cotrak') }}" class="nav-link {{ setActive('cotrak', 'active') }}">
                             <i class="fa fa-line-chart nav-icon"></i>
-                            <p>Website Visits View</p>
+                            <p>Reports</p>
                         </a>
 
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
 
                         <a href=" {{ route('analytics.create') }}" class="nav-link">
                             <i class="fa fa-pie-chart nav-icon"></i>
@@ -298,7 +304,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" style="padding-bottom: 400px;">
                 <a class="nav-link" href="{{ route('logout') }}"
                             onclick="
                         if(confirm('Are you sure you want to Logout?')){

@@ -24,7 +24,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 // Route::get('{path}', 'HomeController@index')->where('path','([A-z\d-\/_.]+)?');
 
 Route::resource('unclaimed', 'UnclaimedBenefitController');
@@ -39,6 +38,8 @@ Route::resource('partemployer', 'PartemployerController');
 
 Route::resource('websitesa', 'WebsitesaController');
 
+Route::resource('cotrak', 'cotrakController');
+
 Route::resource('social', 'SocialController');
 
 Route::get('livechart','LoaderController@index');
@@ -47,7 +48,18 @@ Route::get('livechart/charttwo','LoaderController@charttwo');
 Route::get('livechart/map','LoaderController@map');
 Route::get('livechart/query','LoaderController@query');
 
-// Route::get('charts/api', 'AnalyticsController@getApi');
+// socialite links for facebook
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+//summy way of login in users
+Route::get('facebook/login', function(SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb) {
+    $login_link = $fb
+            ->getRedirectLoginHelper()
+            ->getLoginUrl('https://localhost:8000/facebook/callback', ['email', 'user_events']);
+    
+            echo '<a href="' . $login_link . '">Log in with Facebook</a>';
+});
 
 Route::fallback(function() {
     return 'Hm, why did you land here somehow?';

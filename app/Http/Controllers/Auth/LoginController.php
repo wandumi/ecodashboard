@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -35,5 +36,34 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback($fb)
+    {
+        try {
+            $response = $fb->get('/me?fields=id,name,email', 'user-access-token');
+          } catch(\Facebook\Exceptions\FacebookSDKException $e) {
+            dd($e->getMessage());
+          }
+          
+          $userNode = $response->getGraphUser();
+          printf('Hello, %s!', $userNode->getName());
+
+    
     }
 }

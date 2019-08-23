@@ -8787,9 +8787,9 @@ body,
 }
 
 .brand-image {
-  float: left;
+  /* float: left; */
   line-height: .8;
-  max-height: 34px;
+  max-height: 50px;
   width: auto;
   margin-left: .8rem;
   margin-right: .5rem;
@@ -8809,7 +8809,7 @@ body,
 .sidebar {
   padding-bottom: 0;
   padding-top: 0;
-  padding-left: 0.5rem;
+  padding-left: 0.8rem;
   padding-right: 0.5rem;
   overflow-y: auto;
   height: calc(100% - 4rem);

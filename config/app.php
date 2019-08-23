@@ -159,8 +159,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
 
         ConsoleTVs\Charts\ChartsServiceProvider::class,
+        App\Providers\FacebookServiceProvider::class,
+
 
         
 
@@ -213,7 +216,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        
+
+        'Facebook' => SammyK\LaravelFacebookSdk\FacebookFacade::class,
 
     ],
 

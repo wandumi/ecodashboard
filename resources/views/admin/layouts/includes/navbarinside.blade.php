@@ -24,7 +24,7 @@
       </li>
 
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Cotrak</a>
+        <a href="{{ url('cotrak') }}" class="nav-link {{ setActive('cotrak', 'active') }}">Cotrak</a>
       </li>
 
       <li class="nav-item d-none d-sm-inline-block">
