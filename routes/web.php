@@ -26,11 +26,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('{path}', 'HomeController@index')->where('path','([A-z\d-\/_.]+)?');
 
-Route::group(['middleware' => 'role:admin'], function(){
+Route::group(['middleware' => 'role:superadmin|admin|users|managers'], function(){
     //This links are only accessible to the admins
     Route::resource('unclaimed', 'UnclaimedBenefitController');
 
-    Route::resource('users', 'ManageController');
+    Route::resource('manage', 'ManageController');
+
+    Route::resource('users', 'Controller');
 
     Route::resource('analytics', 'AnalyticsController');
 
@@ -51,8 +53,6 @@ Route::group(['middleware' => 'role:admin'], function(){
     Route::get('livechart/query','LoaderController@query');
     
 });
-
-
 
 // socialite links for facebook
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
