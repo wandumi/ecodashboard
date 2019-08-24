@@ -146,6 +146,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
+        //user roles service provider
+        App\Providers\PermissionsServiceProvider::class,
 
         /*
          * Package Service Providers...

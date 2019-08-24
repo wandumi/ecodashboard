@@ -19,8 +19,7 @@ class CreateAnalyticsTable extends Migration
             $table->string('ip_address');
             $table->string('country_code');
             $table->string('country_name');
-            $table->string('region_name');
-            $table->string('city_name');
+            $table->string('clientIP');
             $table->string('region_name');
             $table->string('city_name');
             $table->string('zip_code');
