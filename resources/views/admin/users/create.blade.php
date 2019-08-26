@@ -111,7 +111,7 @@
                                     
                                         <div class="form-group mb-5 pt-2">
                                             <label>Roles</label>
-                                            <select class="select2 " multiple="roles"  data-placeholder="Select a State" style="width: 100%; color:red;">
+                                            <select class="select2 " multiple="roles"  data-placeholder="Select Roles" style="width: 100%; color:red;">
                                                 @foreach($roles as $role)
                                                     <option value="{{ $role->id }}">{{ $role->name }}</option>
                                                 @endforeach
@@ -135,7 +135,7 @@
                             
                                     <div class="form-group mb-5 pt-3">
                                         <label>Permissions</label>
-                                        <select class="select2 " multiple="roles"  data-placeholder="Select a State" style="width: 100%; color:red;">
+                                        <select class="select2 " multiple="roles"  data-placeholder="Select Permissions" style="width: 100%; color:red;">
                                             @foreach($permissions as $permission)
                                                 <option value="{{ $permission->id }}">{{ $permission->name }}</option>
                                             @endforeach
