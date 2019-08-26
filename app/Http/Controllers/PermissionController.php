@@ -14,7 +14,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::orderBy('id','DESC')->paginate(5);
+        $permissions = Permission::orderBy('id','DESC')->paginate(10);
         return view('admin.permissions.index', compact('permissions'));
             //->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -37,7 +37,21 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+    
+        // dd($request->all());
+        $this->validate($request, [
+            'name' => 'required|unique:permissions,name',
+            'description' => 'required',
+        ]);
+
+        $permission = new Permission;
+        $permission->name = $request->name;
+        $permission->slug = $request->description;
+        $permission->save();
+        
+        //always remember that this goes to the web route 
+        return redirect()->route('permissions.index')
+               ->with('success','Permission has been added to the database');
     }
 
     /**
@@ -80,8 +94,11 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permission $permission)
     {
-        //
+        $permission->delete();
+
+        return redirect()->back()
+               ->with('success', 'Successfully Deleted from the database');
     }
 }

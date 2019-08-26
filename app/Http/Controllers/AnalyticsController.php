@@ -472,23 +472,5 @@ class AnalyticsController extends Controller
         //
     }
 
-    public function getApi()
-    {
-        $days = Input::get('days', 7);
-        $range = Carbon::now()->subDays($days);
-
-        // $stats = analytics::where('created_at', '=', Carbon::now()->subMonth())
-        //     ->groupBy('created_at')
-        //     ->orderBy('created_at', 'DESC')
-        //     ->remember(60)
-        //     ->get([
-        //         DB::raw('Date(created_at) as date'),
-        //         DB::raw('COUNT(*) as value')
-        //     ]);
-
-        $stats = analytics::all();
-        dd($stats);
-
-        return response()->json($stats);
-    }
+    
 }

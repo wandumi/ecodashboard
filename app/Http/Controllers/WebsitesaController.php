@@ -487,8 +487,4 @@ class WebsitesaController extends Controller
         //
     }
 
-    public function social()
-    {
-        return view('admin.websitesa.social');
-    }
 }

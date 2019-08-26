@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use App\User;
+use App\Permission;
 
 class UserController extends Controller
 {
@@ -29,8 +30,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name','name')->all();
-        return view('admin.users.create', compact('roles'));
+        // $roles = Role::pluck('name','name')->all();
+        $roles = Role::all();
+        $permissions = Permission::all();
+
+        // dd($roles, $permissions);
+
+        return view('admin.users.create', compact('roles', 'permissions'));
     }
 
     /**
@@ -41,6 +47,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
+        
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',

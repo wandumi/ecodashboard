@@ -13,13 +13,7 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // function __construct()
-    // {
-    //      $this->middleware('permission:role-list');
-    //      $this->middleware('permission:role-create', ['only' => ['create','store']]);
-    //      $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-    //      $this->middleware('permission:role-delete', ['only' => ['destroy']]);
-    // }
+   
 
     /**
      * Display a listing of the resource.
@@ -28,7 +22,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::orderBy('id','DESC')->paginate(5);
+        $roles = Role::orderBy('id','DESC')->paginate(10);
+        // $roles = Role::all();
         return view('admin.roles.index', compact('roles'));
             //->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -52,11 +47,20 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request->all());
         $this->validate($request, [
             'name' => 'required|unique:roles,name',
             'description' => 'required',
         ]);
+
+        $roles = new Role;
+        $roles->name = $request->name;
+        $roles->slug = $request->description;
+        $roles->save();
+        
+        //always remember that this goes to the web route 
+        return redirect()->route('roles.index')
+               ->with('success','Role has been added to the database');
 
 
         

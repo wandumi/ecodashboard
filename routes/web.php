@@ -37,10 +37,6 @@ Route::group(['middleware' => 'role:superadmin|admin|users|managers'], function(
 
     Route::resource('websitesa', 'WebsitesaController');
 
-    Route::resource('cotrak', 'cotrakController');
-
-    Route::resource('social', 'SocialController');
-
     Route::get('livechart','LoaderController@index');
     Route::get('livechart/chart','LoaderController@chart');
     Route::get('livechart/charttwo','LoaderController@charttwo');
@@ -62,7 +58,7 @@ Route::get('facebook/login', function(SammyK\LaravelFacebookSdk\LaravelFacebookS
             echo '<a href="' . $login_link . '">Log in with Facebook</a>';
 });
 
-// Route::fallback(function() {
-//     return 'Hm, why did you land here somehow?';
-// });
+Route::fallback(function() {
+    return 'Hm, why did you land here somehow?';
+});
 

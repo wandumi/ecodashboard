@@ -25,7 +25,7 @@
                                 <div class="col-md">
                                     <div class="pull-right">
                                         <!-- Button trigger modal -->
-                                    <a href="{{ route('permissions.create') }}" type="button" class="btn btn-primary">
+                                    <a href="{{ route('permissions.create') }}" type="button" class="btn btn-info">
                                             add New <i><span class="fa fa-user"></span></i>
                                         </a>
                                     </div>
@@ -49,40 +49,40 @@
                                         </thead>
                                         <tbody>
                                                 @foreach ($permissions as $permission )
-                                                <tr>
+                                                    <tr>
 
-                                                    <td>{{ $loop->index + 1 }}</td>
-                                                    <td>{{ $permission->name }}</td>
-                                                    <td>{{ $permission->slug }}</td>
-                                                    <td>{{ date ('M j, Y', strtotime($permission->created_at)) }}</td>
+                                                        <td>{{ $loop->index + 1 }}</td>
+                                                        <td>{{ $permission->name }}</td>
+                                                        <td>{{ $permission->slug }}</td>
+                                                        <td>{{ date ('M j, Y', strtotime($permission->created_at)) }}</td>
 
-                                                    <td>
-                                                    <a href="" data-target="#roleedit" data-name="{{ $permission->name }}" data-email="{{ $permission->email }}"
-                                                            data-type="{{ $permission->type }}" data-password="{{ $permission->password }}"
+                                                        <td>
+                                                        <a href="" data-target="#roleedit" data-name="{{ $permission->name }}" data-email="{{ $permission->email }}"
+                                                                data-type="{{ $permission->type }}" data-password="{{ $permission->password }}"
 
-                                                        data-toggle="modal" class="fa fa-edit btn btn-sm btn-primary">
-                                                    </a>
-
-                                                        <form id="delete-form-{{ $permission->id }}" action="{{ route('permissions.destroy', $permission->id ) }}"
-                                                                method="POST" style="display:none" >
-                                                            {{ csrf_field() }}
-                                                            {{ method_field('DELETE') }}
-                                                        </form>
-
-                                                        <a href="" onclick="
-                                                            if(confirm('Are you sure you want to delete this?')){
-                                                                event.preventDefault();
-                                                                document.getElementById('delete-form-{{ $permission->id }}').submit();
-                                                            }else{
-                                                                event.preventDefault();
-                                                            }">
-
-                                                            <span class="fa fa-trash btn btn-sm btn-danger"></span>
+                                                            data-toggle="modal" class="fa fa-edit btn btn-sm btn-info">
                                                         </a>
 
-                                                    </td>
+                                                            <form id="delete-form-{{ $permission->id }}" action="{{ route('permissions.destroy', $permission->id ) }}"
+                                                                    method="POST" style="display:none" >
+                                                                {{ csrf_field() }}
+                                                                {{ method_field('DELETE') }}
+                                                            </form>
 
-                                                </tr>
+                                                            <a href="" onclick="
+                                                                if(confirm('Are you sure you want to delete this?')){
+                                                                    event.preventDefault();
+                                                                    document.getElementById('delete-form-{{ $permission->id }}').submit();
+                                                                }else{
+                                                                    event.preventDefault();
+                                                                }">
+
+                                                                <span class="fa fa-trash btn btn-sm btn-danger"></span>
+                                                            </a>
+
+                                                        </td>
+
+                                                    </tr>
                                                 @endforeach
                                         </tbody>
                                         <tfoot>

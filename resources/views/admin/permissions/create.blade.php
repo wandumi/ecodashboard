@@ -54,12 +54,12 @@
         
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" id="name" class="form-control" name="name"{{ old('name')}}>
+                                    <input type="text" id="name" class="form-control" name="name" value="{{ old('name')}}">
                                 </div>
         
                                 <div class="form-group">
-                                    <label for="slug">Description</label>
-                                    <input type="email" id="slug" class="form-control" name="email"{{ old('slug')}}>
+                                    <label for="description">Description</label>
+                                    <input type="text" id="description" class="form-control" name="description" value="{{ old('description')}}">
                                 </div>
         
                                 </div>

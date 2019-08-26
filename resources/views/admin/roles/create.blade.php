@@ -43,7 +43,7 @@
                         </div>
                         <div>
                              @include('admin.layouts.includes.partials.errors')
-                             @include('admin.layouts.includes.partials.success')
+                             
                         </div>
                         <div class="card-body table-responsive">
 
@@ -58,7 +58,7 @@
         
                                 <div class="form-group">
                                     <label for="description">Description</label>
-                                    <input type="text" id="description" class="form-control" name="description" value="{{ old('slug')}}">
+                                    <input type="text" id="description" class="form-control" name="description" value="{{ old('description')}}">
                                 </div>
         
                                 </div>
