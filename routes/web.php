@@ -31,13 +31,7 @@ Route::resource('permissions', 'PermissionController');
 
 Route::group(['middleware' => 'role:superadmin|admin|users|managers'], function(){
     //This links are only accessible to the admins
-    Route::resource('unclaimed', 'UnclaimedBenefitController');
-
-    
-
     Route::resource('analytics', 'AnalyticsController');
-
-    Route::resource('webusers', 'WebuserController');
 
     Route::resource('partemployer', 'PartemployerController');
 
