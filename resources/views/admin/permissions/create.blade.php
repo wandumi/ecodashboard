@@ -48,9 +48,9 @@
                              @include('admin.layouts.includes.partials.success')
                         </div>
                         <div class="card-body table-responsive">
-                            <form action="" method="POST">
+                            <form action="{{ route('permissions.store') }}" method="POST">
 
-                                {{ csrf_field() }}
+                                @csrf
         
                                 <div class="form-group">
                                     <label for="name">Name</label>
