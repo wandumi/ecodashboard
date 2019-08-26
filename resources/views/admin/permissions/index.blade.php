@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
 
-@section('browsertitle', 'Ecodashboard | Users ')
+@section('browsertitle', 'Ecodashboard | Permissions ')
 
-@section('title','User Management ')
+@section('title','Permission ')
 
-@section('breadcrumb1', 'User Management')
+@section('breadcrumb1', 'Permissions')
 
 @section('breadcrumb2', 'View')
 
@@ -15,7 +15,7 @@
         <div class="container-fluid">
           <div class="row">
 
-            <div class="col-lg-12 col-md-8 mx-auto">
+            <div class="col-lg-8 col-md-8 mx-auto pt-5">
 
                     <div class="card">
                             <div class="card-header">
@@ -25,7 +25,7 @@
                                 <div class="col-md">
                                     <div class="pull-right">
                                         <!-- Button trigger modal -->
-                                    <a href="{{ route('users.create') }}" type="button" class="btn btn-primary">
+                                    <a href="{{ route('permissions.create') }}" type="button" class="btn btn-primary">
                                             add New <i><span class="fa fa-user"></span></i>
                                         </a>
                                     </div>
@@ -41,31 +41,29 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th score="col">User Name</th>
-                                                <th score="col">Email Address</th>
-                                                <th score="col">Roles/Permissions</th>
+                                                <th score="col">Permission Name</th>
+                                                <th score="col">Description</th>
                                                 <th score="col">Date</th>
                                                 <th score="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                @foreach ($users as $user )
+                                                @foreach ($permissions as $permission )
                                                 <tr>
 
                                                     <td>{{ $loop->index + 1 }}</td>
-                                                    <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->email }}</td>
-                                                    <td>{{ $user->password }}</td>
-                                                    <td>{{ date ('M j, Y', strtotime($user->created_at)) }}</td>
+                                                    <td>{{ $permission->name }}</td>
+                                                    <td>{{ $permission->slug }}</td>
+                                                    <td>{{ date ('M j, Y', strtotime($permission->created_at)) }}</td>
 
                                                     <td>
-                                                    <a href="" data-target="#useredit" data-name="{{ $user->name }}" data-email="{{ $user->email }}"
-                                                            data-type="{{ $user->type }}" data-password="{{ $user->password }}"
+                                                    <a href="" data-target="#roleedit" data-name="{{ $permission->name }}" data-email="{{ $permission->email }}"
+                                                            data-type="{{ $permission->type }}" data-password="{{ $permission->password }}"
 
                                                         data-toggle="modal" class="fa fa-edit btn btn-sm btn-primary">
                                                     </a>
 
-                                                        <form id="delete-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id ) }}"
+                                                        <form id="delete-form-{{ $permission->id }}" action="{{ route('permissions.destroy', $permission->id ) }}"
                                                                 method="POST" style="display:none" >
                                                             {{ csrf_field() }}
                                                             {{ method_field('DELETE') }}
@@ -74,7 +72,7 @@
                                                         <a href="" onclick="
                                                             if(confirm('Are you sure you want to delete this?')){
                                                                 event.preventDefault();
-                                                                document.getElementById('delete-form-{{ $user->id }}').submit();
+                                                                document.getElementById('delete-form-{{ $permission->id }}').submit();
                                                             }else{
                                                                 event.preventDefault();
                                                             }">
@@ -90,9 +88,8 @@
                                         <tfoot>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th score="col">User Name</th>
-                                                <th score="col">Email Address</th>
-                                                <th score="col">Roles/Permissions</th>
+                                                <th score="col">Permission Name</th>
+                                                <th score="col">Description</th>
                                                 <th score="col">Date</th>
                                                 <th score="col">Action</th>
                                             </tr>
@@ -106,18 +103,18 @@
             </div>
 
             <!-- Modal add-->
-            <div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="role" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add New User</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add New role</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
                     <div class="modal-body">
 
-                    <form action="{{ route('users.store') }}" method="POST">
+                    <form action="{{ route('permissions.store') }}" method="POST">
 
                         {{ csrf_field() }}
 
@@ -171,7 +168,7 @@
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Add User</button>
+                        <button type="submit" class="btn btn-primary">Add role</button>
                         {{-- <a href="" onclick="
                                 if(confirm('Are you sure you want to add a New User?')){
                                     event.preventDefault();
@@ -199,7 +196,7 @@
                         </div>
                         <div class="modal-body">
 
-                        <form action="{{ route('users.update', $user->id ) }}}}" method="POST">
+                        <form action="{{ route('permissions.update', $permission->id ) }}}}" method="POST">
 
                             {{ csrf_field() }}
 

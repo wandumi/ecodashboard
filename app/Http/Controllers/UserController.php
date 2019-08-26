@@ -15,9 +15,11 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::orderBy('id','DESC')->paginate(5);
-        return view('users.index',compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $users = User::orderBy('id','DESC')->paginate(5);
+        // dd($data);
+        
+        return view('admin.users.index', compact('users'));
+            // ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -28,7 +30,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles'));
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
