@@ -25,7 +25,7 @@
                                 <div class="col-md">
                                     <div class="pull-right">
                                         <!-- Button trigger modal -->
-                                    <a href="{{ route('users.create') }}" type="button" class="btn btn-primary">
+                                        <a href="{{ route('users.create') }}" class="btn btn-danger">
                                             add New <i><span class="fa fa-user"></span></i>
                                         </a>
                                     </div>

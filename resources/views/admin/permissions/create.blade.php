@@ -35,9 +35,12 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-lg-12 margin-tb">
+                                    <div class="pull-left">
+                                        <h2 class="fa fa-key" style="font-weight: bold; font-size: 24px;">Permission</h2>
+                                    </div>
                                     <div class="pull-right">
-                                        <a class="btn btn-primary  " href="{{ route('permissions.index') }}">
-                                            <span class="fa fa-long-arrow-alt-left"> Back</span>
+                                        <a class="btn btn-danger" href="{{ route('permissions.index') }}">
+                                            <span class=""> Back</span>
                                         </a>
                                     </div>
                                 </div>
@@ -48,6 +51,7 @@
                              @include('admin.layouts.includes.partials.success')
                         </div>
                         <div class="card-body table-responsive">
+
                             <form action="{{ route('permissions.store') }}" method="POST">
 
                                 @csrf
@@ -62,27 +66,35 @@
                                     <input type="text" id="description" class="form-control" name="description" value="{{ old('description')}}">
                                 </div>
         
-                                </div>
-                                <div class="modal-footer">
-                               
-                                    <button type="submit" class="btn btn-danger btn-block">Create Permission</button>
-                                
-                                </div>
-                            </form>
-                               
+                            </div>
+                              
+                           
 
                         </div>
+                    
+                        <!-- /.card -->
+
+
+                        <div class="modal-footer">
+                                            
+                                <button type="submit" class="btn btn-danger btn-block" 
+                                style=" font-size:24px;"
+                                >Create Role</button>
+                            
+                            </div>
+                        </form>
                     </div>
-          <!-- /.card -->
+                </div>
+                <!-- /.card -->
+                </div>
 
-        </div>
 
+                <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+                </div>
+                <!-- /.content -->
 
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-</div>
-<!-- /.content -->
 
 
 @endsection

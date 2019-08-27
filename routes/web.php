@@ -25,17 +25,22 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('{path}', 'HomeController@index')->where('path','([A-z\d-\/_.]+)?');
-Route::resource('users', 'UserController');
-Route::resource('roles', 'RoleController');
-Route::resource('permissions', 'PermissionController');
 
-Route::group(['middleware' => 'role:superadmin|admin|users|managers'], function(){
+
+//'role:superadmin|admin|users|managers'
+Route::group(['middleware' => ['auth'] ], function(){
     //This links are only accessible to the admins
     Route::resource('analytics', 'AnalyticsController');
 
     Route::resource('partemployer', 'PartemployerController');
 
     Route::resource('websitesa', 'WebsitesaController');
+
+    Route::resource('users', 'UserController');
+
+    Route::resource('roles', 'RoleController');
+    
+    Route::resource('permissions', 'PermissionController');
 
     Route::get('livechart','LoaderController@index');
     Route::get('livechart/chart','LoaderController@chart');

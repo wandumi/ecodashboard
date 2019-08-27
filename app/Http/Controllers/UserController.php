@@ -47,26 +47,36 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
+            // 'password' => 'required|same:confirm-password',
+            'password' => 'required|string|min:6|confirmed',
             'roles' => 'required'
         ]);
 
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        
+        $user->save();
 
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
+        // $user->role()->sync($request->roles);
+       
+
+        // $input = $request->all();
+        // $input['password'] = Hash::make($input['password']);
 
 
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
+        // $user = User::create($input);
+        // $user->assignRole($request->input('roles'));
 
 
-        return redirect()->route('users.index')
-                        ->with('success','User created successfully');
+        return redirect()->route('users')
+                         ->with('message','User created successfully');
     }
 
     /**

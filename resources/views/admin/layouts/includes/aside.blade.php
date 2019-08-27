@@ -46,7 +46,7 @@
           </li>
           
 
-        @can('isSuperadmin','isAdmin')
+        {{-- @can('isSuperadmin','isAdmin') --}}
 
             <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link {{ setActive('websitesa', 'active') }}">
@@ -280,19 +280,28 @@
 
                         <li class="nav-item">
 
-                            <a href=" {{ url('roles') }}" class="nav-link {{ setActive('users', 'active') }} ">
+                            <a href=" {{ url('roles') }}" class="nav-link {{ setActive('roles', 'active') }} ">
                                 <i class="fa fa-users nav-icon"></i>
-                                <p>Roles & Permissions</p>
+                                <p>Roles</p>
                             </a>
         
                         </li>
+
+                        <li class="nav-item">
+
+                                <a href=" {{ url('permissions') }}" class="nav-link {{ setActive('permissions', 'active') }} ">
+                                    <i class="fa fa-users nav-icon"></i>
+                                    <p>Permissions</p>
+                                </a>
+            
+                            </li>
 
                 </ul>
 
         </li>
 
 
-        @endcan
+        {{-- @endcan --}}
 
           <li class="nav-item">
             <a href="#" class="nav-link">

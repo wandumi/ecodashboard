@@ -19,7 +19,11 @@
   <!-- Bootstrap4 Duallistbox -->
   <link rel="stylesheet" href="{{ asset('admin/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') }}">
   <!-- Theme style -->
-  
+   <!-- Theme style -->
+   <link rel="stylesheet" href="{{ asset('admin/dist/css/AdminLTE.min.css') }}">
+   <!-- AdminLTE Skins. Choose a skin from the css/skins
+        folder instead of downloading all of them to reduce the load. -->
+   <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/_all-skins.min.css') }}">
 
 @endsection
 
@@ -35,15 +39,17 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-lg-12 margin-tb">
+                                        <div class="pull-left">
+                                            <h2 class="fa fa-key" style="font-weight: bold; font-size:150%;"> Roles & Permissions</h2>
+                                        </div>
                                     <div class="pull-right">
-                                        <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
+                                        <a class="btn btn-danger" href="{{ route('roles.index') }}"> Back</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div>
                              @include('admin.layouts.includes.partials.errors')
-                             
                         </div>
                         <div class="card-body table-responsive">
 
@@ -60,18 +66,35 @@
                                     <label for="description">Description</label>
                                     <input type="text" id="description" class="form-control" name="description" value="{{ old('description')}}">
                                 </div>
-        
+                                
+                                <!-- Permission Box -->
+                                <div class="form-group mb-5 pt-3">
+                                    <label for="permissions">Permissions</label>
+                                    <select class="select2 " multiple="permissions"  data-placeholder="Select Permissions" 
+                                            style="width: 100%; color:red;"
+                                            name="permissions[]">
+                                        @foreach($permissions as $permission)
+                                            <option value="{{ $permission->id }}">{{ $permission->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
+                                <!-- /.form-group -->
+                            
+                               
+                            </div>
+                        <!-- /.card -->
+                        </div>
                                 <div class="modal-footer">
                                
-                                    <button type="submit" class="btn btn-danger btn-block">Create Role</button>
+                                    <button type="submit" class="btn btn-danger btn-block" 
+                                       style=" font-size:24px;"
+                                    >Create Role</button>
                                 
                                 </div>
                             </form>
                         </div>
                     </div>
-          <!-- /.card -->
-
+                <!-- /.card -->
         </div>
 
 
@@ -83,6 +106,7 @@
 
 
 @endsection
+
 
 @section('chartsscripts')
 
@@ -99,8 +123,6 @@
     //Initialize Select2 Elements
     $('.select2').select2()
     
-    //Bootstrap Duallistbox
-    $('.duallistbox').bootstrapDualListbox()
 
   })
 </script>

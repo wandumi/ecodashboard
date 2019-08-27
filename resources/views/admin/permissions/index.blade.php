@@ -19,13 +19,15 @@
 
                     <div class="card">
                             <div class="card-header">
-                                {{-- <div class="col-md">
-                                    <p>wandumi</p>
-                                </div> --}}
+                                <div class="col-md">
+                                    <div class="pull-left">
+                                        <h2 class="fa fa-key" style="font-weight: bold; font-size: 24px;"><span>&nbsp;</span> Permissions</h2>
+                                    </div>
+                                </div>
                                 <div class="col-md">
                                     <div class="pull-right">
                                         <!-- Button trigger modal -->
-                                    <a href="{{ route('permissions.create') }}" type="button" class="btn btn-info">
+                                        <a href="{{ route('permissions.create') }}" class="btn btn-danger">
                                             add New <i><span class="fa fa-user"></span></i>
                                         </a>
                                     </div>

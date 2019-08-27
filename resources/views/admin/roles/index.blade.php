@@ -19,20 +19,21 @@
 
                     <div class="card">
                             <div class="card-header">
-                                {{-- <div class="col-md">
-                                    <p>wandumi</p>
-                                </div> --}}
+                                <div class="col-md">
+                                    <div class="pull-left">
+                                        <h2 class="fa fa-key" style="font-weight: bold; font-size: 24px;"> Roles</h2>
+                                    </div>
+                                </div>
                                 <div class="col-md">
                                     <div class="pull-right">
                                         <!-- Button trigger modal -->
-                                    <a href="{{ route('roles.create') }}" type="button" class="btn btn-primary">
+                                    <a href="{{ route('roles.create') }}" class="btn btn-danger">
                                             add New <i><span class="fa fa-user"></span></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                 @include('admin.layouts.includes.partials.errors')
                                  @include('admin.layouts.includes.partials.success')
                             </div>
                             <div class="card-body table-responsive">
